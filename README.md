@@ -7,9 +7,10 @@ Library for easy animation in love2d
 ```lua
 love.graphics.setDefaultFilter("nearest", "nearest", 0)
 
--- require "animate" returns a functions that creates animations
+-- require "animate" returns a function that creates animations
 local animate = require "animate"
 -- create the animation, calling that function
+-- animate("image path", x, y, width, height, framesCount)
 local animation = animate("sprites.png", 16, 16, 16, 16, 4)
 
 -- draw the animation at the given coordinates (x, y)
@@ -24,7 +25,7 @@ function love.update(dt)
 	if counter > 0.15 then
 		counter = 0
 		-- animation:next() is a function which switches to the
-		-- next frame in the spritesheet
+		-- next frame in the spritesheet, automatically loops
 		animation:next()
 	end
 end
