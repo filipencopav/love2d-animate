@@ -35,5 +35,5 @@ spritesheet:
 how it looks:  
 ![alt text][fire animation]
 
-[spritesheet]: https://github.com/theamazingwaffle/love2d-animate/blob/master/example/fire.gif "Spritesheet"
+[spritesheet]: https://github.com/theamazingwaffle/love2d-animate/blob/master/example/sprites.png "Spritesheet"
 [fire animation]: https://github.com/theamazingwaffle/love2d-animate/blob/master/example/fire.gif "Animation"
