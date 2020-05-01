@@ -1,6 +1,6 @@
 love.graphics.setDefaultFilter("nearest", "nearest", 0)
 
-local animate = require "../animate"
+local animate = require "animate"
 local animation = animate("sprites.png", 16, 16, 16, 16, 4)
 
 function love.draw()

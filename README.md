@@ -2,6 +2,11 @@
 
 -----
 
+Clone this repo and run love2d:  
+```bash
+love example/
+```
+
 Library for easy animation in love2d
 
 ```lua
