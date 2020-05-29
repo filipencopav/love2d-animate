@@ -1,4 +1,6 @@
-local function animate(imagePath, x, y, width, height, framesCount)
+local animate = {}
+
+function animate.new(imagePath, x, y, width, height, framesCount)
 	local animation = {}
 
 	local image = love.graphics.newImage(imagePath)
