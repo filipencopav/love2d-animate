@@ -30,8 +30,9 @@ local function new(imagePath, x, y, width, height, framesCount, fps)
 		y = assert(y, "Please provide the y offset"),
 		sx = 1,
 		sy = 1,
-		fx = 1,
-		fy = 1,
+		dx = 1,
+		dy = 1,
+		rotation = 0,
 		width = assert(width, "Please provide the frame width"),
 		height = assert(height, "Please provide the frame height"),
 		image = image,
@@ -57,11 +58,15 @@ function animation:update(dt)
 end
 
 function animation:drawFrame(x, y)
-	love.graphics.draw(self.image, self.quad, x, y, 0, self.sx * self.fx, self.sy * self.fy)
+	love.graphics.draw(self.image, self.quad, x, y, self.rotation, self.sx * self.dx, self.sy * self.dy)
 end
 
 function animation:drawFrameCentered(x, y)
-	love.graphics.draw(self.image, self.quad, x, y, 0, self.sx * self.fx, self.sy * self.fy, self.width/2, self.height/2)
+	love.graphics.draw(self.image, self.quad, x, y, self.rotation, self.sx * self.dx, self.sy * self.dy, self.width/2, self.height/2)
+end
+
+function animation:rotate(radians)
+	self.rotation = self.rotation + radians
 end
 
 function animation:setScale(x, y)
@@ -69,9 +74,13 @@ function animation:setScale(x, y)
 	self.sy = y or self.sy
 end
 
-function animation:setFlip(x, y)
-	self.fx = x or self.fx
-	self.fy = y or self.fy
+function animation:setDirection(x, y)
+	self.dx = x or self.dx
+	self.dy = y or self.dy
+end
+
+function animation:setRotation(rotation)
+	self.rotation = rotation
 end
 
 return setmetatable({
