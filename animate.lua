@@ -23,7 +23,7 @@ local function new(imagePath, x, y, width, height, framesCount, fps)
 
 	local image = love.graphics.newImage(imagePath)
 	fps = fps or 60
-	local mt = {
+	local t = {
 		frame = -1,
 		framesCount = framesCount,
 		x = assert(x, "Please provide the x offset"),
@@ -40,7 +40,7 @@ local function new(imagePath, x, y, width, height, framesCount, fps)
 		fps = fps,
 		timer = 1 / fps,
 	}
-	return setmetatable(mt, animation)
+	return setmetatable(t, animation)
 end
 
 function animation:next()
